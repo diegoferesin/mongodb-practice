@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "b9d22927-54f9-44b8-a1ab-46418ef3349a",
+		"name": "MongoDB Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test Echo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3800/api/testEcho",
+					"host": [
+						"localhost"
+					],
+					"port": "3800",
+					"path": [
+						"api",
+						"testEcho"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a fruit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Papa",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "Brown",
+							"type": "text"
+						},
+						{
+							"key": "season",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3800/api/fruit",
+					"host": [
+						"localhost"
+					],
+					"port": "3800",
+					"path": [
+						"api",
+						"fruit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fruits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3800/api/fruits",
+					"host": [
+						"localhost"
+					],
+					"port": "3800",
+					"path": [
+						"api",
+						"fruits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fruits Order By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3800/api/fruitsOrderByName",
+					"host": [
+						"localhost"
+					],
+					"port": "3800",
+					"path": [
+						"api",
+						"fruitsOrderByName"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
