@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // Cargar rutas
-var fruitRoutes = require('./route/fruit');
+var fruitRoutes = require('./route/fruitRoute');
 
 // body-parser
 app.use(bodyParser.urlencoded({extended:false}));

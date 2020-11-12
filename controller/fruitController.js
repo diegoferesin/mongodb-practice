@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-var Fruit = require("../model/fruit");
+var Fruit = require('../model/fruitModel');
 
 function testsGet(req, res) {
   res.status(200).send({
-    message: "Test path for my API Restful with MongoDB & Node JS",
+    message: 'Test path for my API Restful with MongoDB & Node JS',
   });
 }
 
@@ -21,7 +21,7 @@ function createFruit(req, res) {
     fruit.save((err, fruitStored) => {
       if (err) {
         res.status(500).send({
-          message: "Server Error",
+          message: 'Server Error',
         });
       } else {
         if (fruitStored) {
@@ -30,7 +30,7 @@ function createFruit(req, res) {
           });
         } else {
           res.status(200).send({
-            message: "It did not save fruit",
+            message: 'It did not save fruit',
           });
         }
       }
@@ -46,7 +46,7 @@ function getFruits(req, res) {
   Fruit.find({}).exec((err, fruits) => {
     if (err) {
       res.status(500).send({
-        message: "Server Error",
+        message: 'Server Error',
       });
     } else {
       if (fruits) {
@@ -55,7 +55,7 @@ function getFruits(req, res) {
         });
       } else {
         res.status(404).send({
-          message: "Fruits not found",
+          message: 'Fruits not found',
         });
       }
     }
@@ -68,7 +68,7 @@ function getFruitsOrderByName(req, res) {
     .exec((err, fruits) => {
       if (err) {
         res.status(500).send({
-          message: "Server Error",
+          message: 'Server Error',
         });
       } else {
         if (fruits) {
@@ -77,7 +77,7 @@ function getFruitsOrderByName(req, res) {
           });
         } else {
           res.status(404).send({
-            message: "Fruits not found",
+            message: 'Fruits not found',
           });
         }
       }
@@ -89,7 +89,7 @@ function getFruitById(req, res) {
 
   Fruit.findById(fruitId).exec((err, fruit) => {
     if (err) {
-      res.status(500).send({ message: "Server Error" });
+      res.status(500).send({ message: 'Server Error' });
     } else {
       if (fruit) {
         res.status(200).send({
@@ -97,7 +97,7 @@ function getFruitById(req, res) {
         });
       } else {
         res.status(404).send({
-          message: "Fruit not found",
+          message: 'Fruit not found',
         });
       }
     }
@@ -105,7 +105,49 @@ function getFruitById(req, res) {
 }
 
 function updateFruit(req, res) {
-  var fruitId = req.body.id;
+  var fruitId = req.params.id;
+  var update = req.body;
+
+  Fruit.findByIdAndUpdate(
+    fruitId,
+    update,
+    { new: true },
+    (err, fruitUpdate) => {
+      if (err) {
+        res.status(500).send({ message: 'Server Error' });
+      } else {
+        if (fruitUpdate) {
+          res.status(200).send({
+            Fruit: fruitUpdate,
+          });
+        } else {
+          res.status(404).send({
+            message: 'Fruit not found',
+          });
+        }
+      }
+    }
+  );
+}
+
+function deleteFruitById(req, res) {
+  var fruitId = req.params.id;
+
+  Fruit.findByIdAndDelete(fruitId, (err, fruitDeleted) => {
+    if (err) {
+      res.status(500).send({ message: 'Server Error' });
+    } else {
+      if (fruitDeleted) {
+        res.status(200).send({
+          Fruit: fruitDeleted,
+        });
+      } else {
+        res.status(404).send({
+          message: 'Fruit not found',
+        });
+      }
+    }
+  });
 }
 
 module.exports = {
@@ -114,4 +156,6 @@ module.exports = {
   getFruits,
   getFruitsOrderByName,
   getFruitById,
+  updateFruit,
+  deleteFruitById,
 };
