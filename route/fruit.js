@@ -8,5 +8,7 @@ api.get('/testEcho', FruitController.testsGet);
 api.post('/fruit', FruitController.createFruit)
 api.get('/fruits', FruitController.getFruits);
 api.get('/fruitsOrderByName', FruitController.getFruitsOrderByName);
+api.get('/fruit/:id', FruitController.getFruitById);
+
 
 module.exports = api;
