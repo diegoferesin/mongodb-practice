@@ -4,4 +4,5 @@ Practice from Udemy Course 'MongoDB - Learn NoSQL + API NodeJS'
 
 ## Links
 
-This is [course's link](https://www.udemy.com/course/curso-de-mongodb-aprende-bases-de-datos-nosql/) if you want to check it.
+This is <a href="https://www.udemy.com/course/curso-de-mongodb-aprende-bases-de-datos-nosql/" target="_blank">course's link</a> if you want to check it.
+
