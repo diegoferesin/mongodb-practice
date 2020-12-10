@@ -8,7 +8,7 @@ var port = 3800;
 
 mongoose
   .connect('mongodb://localhost:27017/mongodb_practice', {
-    useMongoClient: true,
+    useNewUrlParser: true,
   })
   .then(() => {
     console.log('MongoDB connection ok 😎');
